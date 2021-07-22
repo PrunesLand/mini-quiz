@@ -13,13 +13,21 @@ export const introStyle = makeStyles((theme) => {
         },
         paper: {
             height: '60vh',
-            width: '60vw',
+            width: '85vw',
+            [theme.breakpoints.up('sm')]: {
+                width: '70vw',
+                height: '70vh'
+            }
 
         },
         title: {
             textAlign: 'center',
             padding: theme.spacing(4),
-            fontSize: theme.spacing(6)
+            fontSize: theme.spacing(4),
+            [theme.breakpoints.up('sm')]: {
+                fontSize: theme.spacing(6),
+
+            }
         },
         fieldWrapper: {
             height: '10vh',
@@ -32,21 +40,35 @@ export const introStyle = makeStyles((theme) => {
         intro: {
             margin: 'auto',
             textAlign: 'center',
-            width: '45vw',
-            fontSize: theme.spacing(3)
+            width: '75vw',
+            fontSize: theme.spacing(2),
+            [theme.breakpoints.up('sm')]: {
+                fontSize: theme.spacing(3),
+                width: '65vw'
+
+            }
         },
         fieldIntro: {
             fontSize: theme.spacing(2)
         },
         field: {
-            width: '20vw',
+            width: '50vw',
             margin: 'auto',
+            [theme.breakpoints.up('sm')]: {
+                width: '30vh'
+            }
+
         },
         button: {
             width: '5vh',
             margin: 'auto',
-            fontSize: theme.spacing(3),
-            padding: '1vh 8vh'
+            padding: '1vh 6vh',
+            fontSize: theme.spacing(2),
+            [theme.breakpoints.up('sm')]: {
+                fontSize: theme.spacing(3),
+                padding: '1vh 8vh',
+
+            }
 
         },
         buttonWrapper: {
