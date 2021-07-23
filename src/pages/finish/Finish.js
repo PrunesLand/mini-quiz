@@ -39,6 +39,11 @@ const Finish = () => {
                             >
                                 {item.title}
                             </Typography>
+                            <Typography
+                                className={classes.dynamicText}
+                            >
+                                You scored #score of 5
+                            </Typography>
                         </div>
                     )
                 })}
