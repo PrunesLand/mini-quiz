@@ -43,7 +43,9 @@ const Welcome = () => {
                         >
                             <Button
                                 variant='outlined'
-                                className={classes.button}>
+                                className={classes.button}
+                                disabled
+                            >
                                 start
                             </Button>
                         </div>
