@@ -19,7 +19,7 @@ const Finish = () => {
                     <Typography
                         className={classes.staticText}
                     >
-                        Congrats
+                        Congrats!
                     </Typography>
                     <Typography
                         className={classes.dynamicText}

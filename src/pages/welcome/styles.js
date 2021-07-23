@@ -12,10 +12,10 @@ export const introStyle = makeStyles((theme) => {
             alignItems: 'center'
         },
         paper: {
-            height: '60vh',
+            height: '52vh',
             width: '85vw',
             [theme.breakpoints.up('sm')]: {
-                width: '70vw',
+                width: '60vw',
                 height: '70vh'
             }
 
@@ -44,7 +44,7 @@ export const introStyle = makeStyles((theme) => {
             fontSize: theme.spacing(2),
             [theme.breakpoints.up('sm')]: {
                 fontSize: theme.spacing(3),
-                width: '65vw'
+                width: '55vw'
 
             }
         },
