@@ -1,11 +1,15 @@
 import { Paper, Typography } from '@material-ui/core'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { CurrentName } from '../../features/user/user'
 import { achievements } from './achievement'
 import { finishStyle } from './style'
+
 
 const Finish = () => {
 
     const classes = finishStyle()
+    const name = useSelector(CurrentName)
 
     return (
         <div
@@ -18,6 +22,7 @@ const Finish = () => {
                     return (
                         <div
                             className={classes.container}
+                            key={item.id}
                         >
                             <Typography
                                 className={classes.staticText}
@@ -27,7 +32,7 @@ const Finish = () => {
                             <Typography
                                 className={classes.dynamicText}
                             >
-                                Name
+                                {name}
                             </Typography>
                             <Typography
                                 className={classes.staticText}
