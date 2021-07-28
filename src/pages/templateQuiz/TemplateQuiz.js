@@ -1,11 +1,78 @@
 import { Button, Paper, Typography } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { QuestionBank } from './questions'
 import { templateStyle } from './styles'
+import { storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, selectPage, resetPage } from '../../features/user/user';
+import { useHistory } from 'react-router'
+import { increment } from '../../features/counter/counter'
 
 const TemplateQuiz = () => {
-
     const classes = templateStyle()
+    const [question, setQuestion] = useState(1)
+    const dispatch = useDispatch()
+    const [flag, setFlag] = useState(false)
+    const page = useSelector(selectPage)
+    const reset = useSelector(resetPage)
+    const addValue = useSelector(increment)
+    const history = useHistory()
+    const [answerFlag, setAnswerFlag] = useState(false)
+
+
+
+    const changeQuest = () => {
+        dispatch(incrementPage())
+        setQuestion(page + 1)
+        setFlag(false)
+        console.log('next question')
+        if (page === 5) {
+            history.push('/finish')
+            setQuestion(1)
+            dispatch(reset)
+            console.log('all question answered, next page!')
+        }
+        if (answerFlag === true) {
+            dispatch(addValue)
+            console.log('corrent answer!')
+            setAnswerFlag(false)
+        }
+    }
+
+    const clickHandler = (answer, solution) => {
+        console.log('answer selected!')
+        if (answer === solution) {
+            setAnswerFlag(true)
+        } else {
+            setAnswerFlag(false)
+        }
+
+        switch (question) {
+            case 1:
+                dispatch(storeAnswer1(answer))
+
+                break;
+            case 2:
+                dispatch(storeAnswer2(answer))
+
+                break;
+            case 3:
+                dispatch(storeAnswer3(answer))
+
+                break;
+            case 4:
+                dispatch(storeAnswer4(answer))
+
+                break;
+            case 5:
+                dispatch(storeAnswer5(answer))
+
+                break;
+            default:
+                break;
+
+        }
+        setFlag(true)
+    }
 
     return (
         <div
@@ -17,7 +84,7 @@ const TemplateQuiz = () => {
                 <div
                     className={classes.dynamicWrapper}
                 >
-                    {QuestionBank.filter(item => item.id === 5).map(single => {
+                    {QuestionBank.filter(item => item.id === question).map(single => {
                         return (
                             <div key={single.id}>
                                 <div
@@ -48,6 +115,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
+                                                onClick={() => clickHandler(single.options.option1, single.solution)}
                                             >
                                                 {single.options.option1}
                                             </Button>
@@ -58,6 +126,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
+                                                onClick={() => clickHandler(single.options.option2, single.solution)}
                                             >
                                                 {single.options.option2}
                                             </Button>
@@ -68,7 +137,9 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
-                                            >{single.options.option3}
+                                                onClick={() => clickHandler(single.options.option3, single.solution)}
+                                            >
+                                                {single.options.option3}
                                             </Button>
                                         </div>
                                         <div
@@ -77,6 +148,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
+                                                onClick={() => clickHandler(single.options.option4, single.solution)}
                                             >
                                                 {single.options.option4}
                                             </Button>
@@ -94,18 +166,24 @@ const TemplateQuiz = () => {
                     <div
                         className={classes.Bwrapper}
                     >
-                        <Button
+                        {flag !== true ? <Button
                             variant='outlined'
                             className={classes.button}
                             disabled
                         >
                             Next Question
-                        </Button>
+                        </Button> : <Button
+                            variant='outlined'
+                            className={classes.button}
+                            onClick={() => changeQuest()}
+                        >
+                            Next Question
+                        </Button>}
                     </div>
                     <Typography
                         className={classes.index}
                     >
-                        Question . of 5
+                        Question {question} of 5
                     </Typography>
                 </div>
             </Paper>

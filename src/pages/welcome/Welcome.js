@@ -2,9 +2,19 @@ import { Button, Paper, Typography } from '@material-ui/core';
 import React from 'react'
 import { TextField } from '@material-ui/core';
 import { introStyle } from './styles';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setName } from '../../features/user/user';
+import { useHistory } from 'react-router';
+
+
 
 const Welcome = () => {
     const classes = introStyle()
+    const [user, setUser] = useState('')
+    const dispatch = useDispatch()
+    const history = useHistory()
+
 
     return (
         <div
@@ -37,14 +47,25 @@ const Welcome = () => {
                     <div
                         className={classes.fieldWrapper}
                     >
-                        <TextField label='Enter your name' className={classes.field} />
+                        <form>
+                            <TextField
+                                label='Enter your user'
+                                className={classes.field}
+                                value={user}
+                                onChange={e => setUser(e.target.value)}
+                            />
+                        </form>
                         <div
                             className={classes.buttonWrapper}
                         >
                             <Button
                                 variant='outlined'
                                 className={classes.button}
-                                disabled
+                                onClick={() => {
+                                    dispatch(setName(user))
+                                    history.push('/template')
+                                    console.log('name entered!')
+                                }}
                             >
                                 start
                             </Button>

@@ -7,7 +7,8 @@ export const QuestionBank = [
             option2: 'A Actor',
             option3: 'A UFC Fighter',
             option4: 'A Podcast Host',
-        }
+        },
+        solution: 'A Podcast Host'
 
     },
     {
@@ -18,7 +19,8 @@ export const QuestionBank = [
             option2: 'A Actor',
             option3: 'A UFC Fighter',
             option4: 'A Podcast Host',
-        }
+        },
+        solution: 'A Podcast Host'
     },
     {
         id: 3,
@@ -28,7 +30,8 @@ export const QuestionBank = [
             option2: 'A Actor',
             option3: 'A UFC Fighter',
             option4: 'A Podcast Host',
-        }
+        },
+        solution: 'A Podcast Host'
     },
     {
         id: 4,
@@ -38,7 +41,8 @@ export const QuestionBank = [
             option2: 'A Actor',
             option3: 'A UFC Fighter',
             option4: 'A Podcast Host',
-        }
+        },
+        solution: 'A Podcast Host'
     },
     {
         id: 5,
@@ -48,6 +52,7 @@ export const QuestionBank = [
             option2: 'A Actor',
             option3: 'A UFC Fighter',
             option4: 'A Podcast Host',
-        }
+        },
+        solution: 'A Podcast Host'
     },
 ]
