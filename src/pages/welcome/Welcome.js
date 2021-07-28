@@ -8,11 +8,13 @@ import { setName } from '../../features/user/user';
 import { useHistory } from 'react-router';
 
 
+
 const Welcome = () => {
     const classes = introStyle()
     const [user, setUser] = useState('')
     const dispatch = useDispatch()
     const history = useHistory()
+
 
     return (
         <div
@@ -62,6 +64,7 @@ const Welcome = () => {
                                 onClick={() => {
                                     dispatch(setName(user))
                                     history.push('/template')
+                                    console.log('name entered!')
                                 }}
                             >
                                 start

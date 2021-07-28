@@ -12,12 +12,14 @@ export const counterSlice = createSlice({
         decrement: state => {
             state.value -= 1
         },
-
+        resetScore: state => {
+            state.value -= state.value
+        }
     }
 })
 
 export const selectCount = state => state.counter.value;
 
-export const { increment, decrement } = counterSlice.actions
+export const { increment, decrement, resetScore } = counterSlice.actions
 
 export default counterSlice.reducer

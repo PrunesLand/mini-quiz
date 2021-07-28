@@ -51,6 +51,22 @@ export const finishStyle = makeStyles((theme) => {
             [theme.breakpoints.up('sm')]: {
                 fontSize: theme.spacing(5)
             }
+        },
+        buttonWrapper: {
+            height: '15vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+        },
+        button: {
+
+            margin: 'auto',
+            fontSize: theme.spacing(2),
+            [theme.breakpoints.up('sm')]: {
+                fontSize: theme.spacing(3),
+                padding: '1vh 8vh',
+
+            }
         }
     }
 })

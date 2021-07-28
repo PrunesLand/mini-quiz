@@ -1,20 +1,41 @@
-import { Paper, Typography } from '@material-ui/core'
+import { Button, Paper, Typography } from '@material-ui/core'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { calculateTitle, selectTitle } from '../../features/achievements/achievements'
-import { selectCount } from '../../features/counter/counter'
+import { useHistory } from 'react-router'
+import { resetScore, selectCount } from '../../features/counter/counter'
 import { CurrentName } from '../../features/user/user'
+import { achievements } from './achievement'
 import { finishStyle } from './style'
-import { VscDebugRestart } from 'react-icons/vsc'
+
+
 const Finish = () => {
 
     const classes = finishStyle()
     const name = useSelector(CurrentName)
     const score = useSelector(selectCount)
-    const title = useSelector(selectTitle)
+    let title = ''
     const dispatch = useDispatch()
+    const history = useHistory()
+    const reset = useSelector(resetScore)
 
-    dispatch(calculateTitle(5))
+    const titleAchieved = (score) => {
+        switch (score) {
+            case 5:
+                title = achievements[achievements.length - 1].title
+                break;
+            case 0:
+                title = achievements[0].title
+                break;
+            default:
+                title = achievements[1].title
+                break;
+        }
+
+    }
+
+    titleAchieved(score);
+
+
 
     return (
         <div
@@ -55,9 +76,22 @@ const Finish = () => {
                     </Typography>
                 </div>
                 <div
-                    className={classes.button}
+                    className={classes.buttonWrapper}
                 >
-                    <VscDebugRestart />
+                    <div
+
+                    >
+                        <Button
+                            variant='outlined'
+                            className={classes.button}
+                            onClick={() => {
+                                history.push('/template')
+                                dispatch(reset)
+                            }}
+                        >
+                            Try Again
+                        </Button>
+                    </div>
                 </div>
 
 

@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { QuestionBank } from './questions'
 import { templateStyle } from './styles'
-import { storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, selectPage } from '../../features/user/user';
+import { storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, selectPage, resetPage } from '../../features/user/user';
 import { useHistory } from 'react-router'
 import { increment } from '../../features/counter/counter'
+
 
 
 
@@ -15,25 +16,32 @@ const TemplateQuiz = () => {
     const dispatch = useDispatch()
     const [flag, setFlag] = useState(false)
     const page = useSelector(selectPage)
+    const reset = useSelector(resetPage)
     const addValue = useSelector(increment)
     const history = useHistory()
     const [answerFlag, setAnswerFlag] = useState(false)
+
 
     const changeQuest = () => {
         dispatch(incrementPage())
         setQuestion(page + 1)
         setFlag(false)
+        console.log('next question')
         if (page === 5) {
             history.push('/finish')
+            setQuestion(1)
+            dispatch(reset)
+            console.log('all question answered, next page!')
         }
         if (answerFlag === true) {
             dispatch(addValue)
+            console.log('corrent answer!')
             setAnswerFlag(false)
         }
     }
 
     const clickHandler = (answer, solution) => {
-
+        console.log('answer selected!')
         if (answer === solution) {
             setAnswerFlag(true)
         } else {
@@ -43,25 +51,29 @@ const TemplateQuiz = () => {
         switch (question) {
             case 1:
                 dispatch(storeAnswer1(answer))
+
                 break;
             case 2:
                 dispatch(storeAnswer2(answer))
+
                 break;
             case 3:
                 dispatch(storeAnswer3(answer))
+
                 break;
             case 4:
                 dispatch(storeAnswer4(answer))
+
                 break;
             case 5:
                 dispatch(storeAnswer5(answer))
+
                 break;
             default:
                 break;
 
         }
         setFlag(true)
-        console.log('clicked button')
     }
 
     return (

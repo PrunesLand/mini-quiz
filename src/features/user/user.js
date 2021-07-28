@@ -34,6 +34,9 @@ export const userSlice = createSlice({
         },
         incrementPage: (state) => {
             state.page += 1
+        },
+        resetPage: state => {
+            state.page -= state.page - 1
         }
     }
 })
@@ -42,6 +45,6 @@ export const CurrentName = state => state.user.value;
 
 export const selectPage = state => state.user.page;
 
-export const { setName, storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage } = userSlice.actions
+export const { setName, storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, resetPage } = userSlice.actions
 
 export default userSlice.reducer
