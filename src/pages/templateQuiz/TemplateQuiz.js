@@ -5,6 +5,8 @@ import { QuestionBank } from './questions'
 import { templateStyle } from './styles'
 import { storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, selectPage } from '../../features/user/user';
 import { useHistory } from 'react-router'
+import { increment } from '../../features/counter/counter'
+
 
 
 const TemplateQuiz = () => {
@@ -13,7 +15,9 @@ const TemplateQuiz = () => {
     const dispatch = useDispatch()
     const [flag, setFlag] = useState(false)
     const page = useSelector(selectPage)
+    const addValue = useSelector(increment)
     const history = useHistory()
+    const [answerFlag, setAnswerFlag] = useState(false)
 
     const changeQuest = () => {
         dispatch(incrementPage())
@@ -22,9 +26,20 @@ const TemplateQuiz = () => {
         if (page === 5) {
             history.push('/finish')
         }
+        if (answerFlag === true) {
+            dispatch(addValue)
+            setAnswerFlag(false)
+        }
     }
 
-    const clickHandler = (answer) => {
+    const clickHandler = (answer, solution) => {
+
+        if (answer === solution) {
+            setAnswerFlag(true)
+        } else {
+            setAnswerFlag(false)
+        }
+
         switch (question) {
             case 1:
                 dispatch(storeAnswer1(answer))
@@ -90,7 +105,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option1)}
+                                                onClick={() => clickHandler(single.options.option1, single.solution)}
                                             >
                                                 {single.options.option1}
                                             </Button>
@@ -101,7 +116,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option2)}
+                                                onClick={() => clickHandler(single.options.option2, single.solution)}
                                             >
                                                 {single.options.option2}
                                             </Button>
@@ -112,7 +127,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option3)}
+                                                onClick={() => clickHandler(single.options.option3, single.solution)}
                                             >
                                                 {single.options.option3}
                                             </Button>
@@ -123,7 +138,7 @@ const TemplateQuiz = () => {
                                             <Button
                                                 variant='contained'
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option4)}
+                                                onClick={() => clickHandler(single.options.option4, single.solution)}
                                             >
                                                 {single.options.option4}
                                             </Button>

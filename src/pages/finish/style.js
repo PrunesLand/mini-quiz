@@ -22,15 +22,31 @@ export const finishStyle = makeStyles((theme) => {
         },
         staticText: {
             textAlign: 'center',
-            padding: theme.spacing(2),
-            fontSize: theme.spacing(2),
+
+            fontSize: theme.spacing(3.5),
             [theme.breakpoints.up('sm')]: {
                 fontSize: theme.spacing(4)
             }
         },
         dynamicText: {
             textAlign: 'center',
-            padding: theme.spacing(2),
+
+            fontSize: theme.spacing(2.5),
+            [theme.breakpoints.up('sm')]: {
+                fontSize: theme.spacing(5)
+            }
+        },
+        score: {
+            textAlign: 'center',
+
+            fontSize: theme.spacing(2),
+            [theme.breakpoints.up('sm')]: {
+                fontSize: theme.spacing(5)
+            }
+        },
+        title: {
+            textAlign: 'center',
+            padding: theme.spacing(2.5),
             fontSize: theme.spacing(3),
             [theme.breakpoints.up('sm')]: {
                 fontSize: theme.spacing(5)

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const achievements = createSlice({
     name: 'achievements',
     initialState: {
-        value: null,
+        value: 'test',
         titles: {
             title1: {
                 id: 1,
@@ -26,13 +26,13 @@ export const achievements = createSlice({
         calculateTitle: (state, action) => {
             switch (action.payload) {
                 case 5:
-                    state.value = state.titles.title3
+                    state.value = state.titles.title3.title
                     break;
                 case 1 <= action.payload <= 4:
-                    state.value = state.titles.title2
+                    state.value = state.titles.title2.title
                     break;
                 default:
-                    state.value = state.titles.title1
+                    state.value = state.titles.title1.title
                     break;
             }
         }
