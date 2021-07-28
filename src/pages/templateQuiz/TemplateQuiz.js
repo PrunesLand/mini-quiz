@@ -7,9 +7,6 @@ import { storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, i
 import { useHistory } from 'react-router'
 import { increment } from '../../features/counter/counter'
 
-
-
-
 const TemplateQuiz = () => {
     const classes = templateStyle()
     const [question, setQuestion] = useState(1)
@@ -20,6 +17,7 @@ const TemplateQuiz = () => {
     const addValue = useSelector(increment)
     const history = useHistory()
     const [answerFlag, setAnswerFlag] = useState(false)
+
 
 
     const changeQuest = () => {
