@@ -3,8 +3,10 @@ import { makeStyles } from "@material-ui/core";
 export const templateStyle = makeStyles((theme) => {
     return {
         root: {
-            background: theme.palette.primary.main,
-            height: '100vh',
+            background: theme.palette.primary.dark
+        },
+        section: {
+            height: '90vh',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -38,8 +40,6 @@ export const templateStyle = makeStyles((theme) => {
             [theme.breakpoints.up('xs')]: {
                 width: '30vh'
             }
-
-
         },
         answers: {
             width: '65vw',
@@ -68,6 +68,17 @@ export const templateStyle = makeStyles((theme) => {
         },
         radioWrapper: {
             alignContent: 'center'
+        },
+        footer: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: theme.palette.primary.main,
+            height: '10vh'
+        },
+        github: {
+            fontSize: theme.spacing(6),
+            cursor: 'pointer'
         }
 
     }

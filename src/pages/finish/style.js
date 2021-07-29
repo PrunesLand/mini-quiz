@@ -3,8 +3,10 @@ import { makeStyles } from "@material-ui/core";
 export const finishStyle = makeStyles((theme) => {
     return {
         root: {
-            background: theme.palette.primary.main,
-            height: '100vh',
+            background: theme.palette.primary.dark
+        },
+        section: {
+            height: '90vh',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -73,6 +75,17 @@ export const finishStyle = makeStyles((theme) => {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-around'
+        },
+        footer: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: theme.palette.primary.main,
+            height: '10vh'
+        },
+        github: {
+            fontSize: theme.spacing(6),
+            cursor: 'pointer'
         }
     }
 })

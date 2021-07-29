@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setName } from '../../features/user/user';
 import { useHistory } from 'react-router';
-
+import { FaGithub } from 'react-icons/fa'
 
 
 const Welcome = () => {
@@ -76,7 +76,16 @@ const Welcome = () => {
                         </form>
                     </div>
                 </Paper>
+
             </section>
+            <footer
+                className={classes.footer}
+            >
+                <FaGithub
+                    className={classes.github}
+                    onClick={() => window.open('https://github.com/PrunesLand')}
+                />
+            </footer>
         </div>
     )
 }
