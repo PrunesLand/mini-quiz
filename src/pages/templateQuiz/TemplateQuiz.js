@@ -6,6 +6,10 @@ import { templateStyle } from './styles'
 import { storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, selectPage, resetPage } from '../../features/user/user';
 import { useHistory } from 'react-router'
 import { increment } from '../../features/counter/counter'
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 const TemplateQuiz = () => {
     const classes = templateStyle()
@@ -105,55 +109,42 @@ const TemplateQuiz = () => {
                                         {single.question}
                                     </Typography>
                                 </div>
-                                <div>
-                                    <div
+                                <div
+                                    className={classes.radioWrapper}
+                                >
+                                    <FormControl
                                         className={classes.answerBox}
                                     >
-                                        <div
-                                            className={classes.answerWrapper}
+                                        <RadioGroup
+                                            onChange={() => clickHandler(single.options.option1, single.solution)}
                                         >
-                                            <Button
-                                                variant='contained'
+
+                                            <FormControlLabel
+                                                value={single.options.option1}
+                                                control={<Radio />}
+                                                label={single.options.option1}
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option1, single.solution)}
-                                            >
-                                                {single.options.option1}
-                                            </Button>
-                                        </div>
-                                        <div
-                                            className={classes.answerWrapper}
-                                        >
-                                            <Button
-                                                variant='contained'
+                                            />
+                                            <FormControlLabel
+                                                value={single.options.option2}
+                                                control={<Radio />}
+                                                label={single.options.option2}
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option2, single.solution)}
-                                            >
-                                                {single.options.option2}
-                                            </Button>
-                                        </div>
-                                        <div
-                                            className={classes.answerWrapper}
-                                        >
-                                            <Button
-                                                variant='contained'
+                                            />
+                                            <FormControlLabel
+                                                value={single.options.option3}
+                                                control={<Radio />}
+                                                label={single.options.option3}
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option3, single.solution)}
-                                            >
-                                                {single.options.option3}
-                                            </Button>
-                                        </div>
-                                        <div
-                                            className={classes.answerWrapper}
-                                        >
-                                            <Button
-                                                variant='contained'
+                                            />
+                                            <FormControlLabel
+                                                value={single.options.option4}
+                                                control={<Radio />}
+                                                label={single.options.option4}
                                                 className={classes.answers}
-                                                onClick={() => clickHandler(single.options.option4, single.solution)}
-                                            >
-                                                {single.options.option4}
-                                            </Button>
-                                        </div>
-                                    </div>
+                                            />
+                                        </RadioGroup>
+                                    </FormControl>
                                 </div>
                             </div>
                         )

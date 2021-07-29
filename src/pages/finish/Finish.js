@@ -3,10 +3,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { resetScore, selectCount } from '../../features/counter/counter'
-import { CurrentName } from '../../features/user/user'
+import { CurrentName, setName } from '../../features/user/user'
 import { achievements } from './achievement'
 import { finishStyle } from './style'
-
 
 const Finish = () => {
 
@@ -67,7 +66,7 @@ const Finish = () => {
                     <Typography
                         className={classes.title}
                     >
-                        {title}
+                        {title}!
                     </Typography>
                     <Typography
                         className={classes.score}
@@ -76,9 +75,10 @@ const Finish = () => {
                     </Typography>
                 </div>
                 <div
-                    className={classes.buttonWrapper}
+                    className={classes.buttonsContainer}
                 >
                     <div
+                        className={classes.buttonWrapper}
 
                     >
                         <Button
@@ -91,8 +91,27 @@ const Finish = () => {
                         >
                             Try Again
                         </Button>
+
+                    </div>
+                    <div
+                        className={classes.buttonWrapper}
+
+                    >
+                        <Button
+                            variant='outlined'
+                            className={classes.button}
+                            onClick={() => {
+                                history.push('/')
+                                dispatch(reset)
+                                dispatch(setName(''))
+                            }}
+                        >
+                            Go Home
+                        </Button>
+
                     </div>
                 </div>
+
 
 
             </Paper>

@@ -47,29 +47,33 @@ const Welcome = () => {
                     <div
                         className={classes.fieldWrapper}
                     >
-                        <form>
+                        <form onSubmit={(e) => {
+                            dispatch(setName(user))
+                            history.push('/template')
+                            console.log('name entered!')
+                            e.preventDefault()
+                        }
+                        }>
+
                             <TextField
                                 label='Enter your user'
                                 className={classes.field}
                                 value={user}
                                 onChange={e => setUser(e.target.value)}
                             />
-                        </form>
-                        <div
-                            className={classes.buttonWrapper}
-                        >
-                            <Button
-                                variant='outlined'
-                                className={classes.button}
-                                onClick={() => {
-                                    dispatch(setName(user))
-                                    history.push('/template')
-                                    console.log('name entered!')
-                                }}
+
+                            <div
+                                className={classes.buttonWrapper}
                             >
-                                start
-                            </Button>
-                        </div>
+                                <Button
+                                    variant='outlined'
+                                    type='submit'
+                                    className={classes.button}
+                                >
+                                    start
+                                </Button>
+                            </div>
+                        </form>
                     </div>
                 </Paper>
             </section>

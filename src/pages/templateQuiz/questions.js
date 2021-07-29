@@ -49,7 +49,7 @@ export const QuestionBank = [
         question: 'Infamous Joe Rogan question?',
         options: {
             option1: '"Have you tried DMT?"',
-            option2: '"Why is the earth flat?',
+            option2: '"Why is the earth flat?"',
             option3: '"Have you tried elk liver?"',
             option4: '"What do you know about the aliens?"',
         },
