@@ -3,10 +3,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { resetScore, selectCount } from '../../features/counter/counter'
-import { CurrentName } from '../../features/user/user'
+import { CurrentName, setName } from '../../features/user/user'
 import { achievements } from './achievement'
 import { finishStyle } from './style'
-
+import { FaGithub } from 'react-icons/fa'
 
 const Finish = () => {
 
@@ -41,61 +41,94 @@ const Finish = () => {
         <div
             className={classes.root}
         >
-            <Paper
-                className={classes.paper}
+            <section
+                className={classes.section}
             >
-
-                <div
-                    className={classes.container}
-
+                <Paper
+                    className={classes.paper}
                 >
-                    <Typography
-                        className={classes.staticText}
-                    >
-                        Congrats!
-                    </Typography>
-                    <Typography
-                        className={classes.dynamicText}
-                    >
-                        {name}
-                    </Typography>
-                    <Typography
-                        className={classes.staticText}
-                    >
-                        You are a
-                    </Typography>
-                    <Typography
-                        className={classes.title}
-                    >
-                        {title}
-                    </Typography>
-                    <Typography
-                        className={classes.score}
-                    >
-                        You scored {score} of 5
-                    </Typography>
-                </div>
-                <div
-                    className={classes.buttonWrapper}
-                >
+
                     <div
+                        className={classes.container}
 
                     >
-                        <Button
-                            variant='outlined'
-                            className={classes.button}
-                            onClick={() => {
-                                history.push('/template')
-                                dispatch(reset)
-                            }}
+                        <Typography
+                            className={classes.staticText}
                         >
-                            Try Again
-                        </Button>
+                            Congrats!
+                        </Typography>
+                        <Typography
+                            className={classes.dynamicText}
+                        >
+                            {name}
+                        </Typography>
+                        <Typography
+                            className={classes.staticText}
+                        >
+                            You are a
+                        </Typography>
+                        <Typography
+                            className={classes.title}
+                        >
+                            {title}!
+                        </Typography>
+                        <Typography
+                            className={classes.score}
+                        >
+                            You scored {score} of 5
+                        </Typography>
                     </div>
-                </div>
+                    <div
+                        className={classes.buttonsContainer}
+                    >
+                        <div
+                            className={classes.buttonWrapper}
+
+                        >
+                            <Button
+                                variant='outlined'
+                                className={classes.button}
+                                onClick={() => {
+                                    history.push('/template')
+                                    dispatch(reset)
+                                }}
+                            >
+                                Try Again
+                            </Button>
+
+                        </div>
+                        <div
+                            className={classes.buttonWrapper}
+
+                        >
+                            <Button
+                                variant='outlined'
+                                className={classes.button}
+                                onClick={() => {
+                                    history.push('/')
+                                    dispatch(reset)
+                                    dispatch(setName(''))
+                                }}
+                            >
+                                Go Home
+                            </Button>
+
+                        </div>
+                    </div>
 
 
-            </Paper>
+
+                </Paper>
+            </section>
+            <footer
+                className={classes.footer}
+            >
+                <FaGithub
+                    className={classes.github}
+                    onClick={() => window.open('https://github.com/PrunesLand')}
+                />
+            </footer>
+
         </div>
     )
 }

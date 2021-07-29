@@ -6,7 +6,7 @@ export const introStyle = makeStyles((theme) => {
             background: theme.palette.primary.dark
         },
         section: {
-            height: '100vh',
+            height: '90vh',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -73,6 +73,17 @@ export const introStyle = makeStyles((theme) => {
         },
         buttonWrapper: {
             padding: theme.spacing(4)
+        },
+        footer: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: theme.palette.primary.main,
+            height: '10vh'
+        },
+        github: {
+            fontSize: theme.spacing(6),
+            cursor: 'pointer'
         }
     }
 })

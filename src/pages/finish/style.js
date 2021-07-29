@@ -3,8 +3,10 @@ import { makeStyles } from "@material-ui/core";
 export const finishStyle = makeStyles((theme) => {
     return {
         root: {
-            background: theme.palette.primary.main,
-            height: '100vh',
+            background: theme.palette.primary.dark
+        },
+        section: {
+            height: '90vh',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -30,7 +32,7 @@ export const finishStyle = makeStyles((theme) => {
         },
         dynamicText: {
             textAlign: 'center',
-
+            color: theme.palette.primary.main,
             fontSize: theme.spacing(2.5),
             [theme.breakpoints.up('sm')]: {
                 fontSize: theme.spacing(5)
@@ -41,13 +43,14 @@ export const finishStyle = makeStyles((theme) => {
 
             fontSize: theme.spacing(2),
             [theme.breakpoints.up('sm')]: {
-                fontSize: theme.spacing(5)
+                fontSize: theme.spacing(4)
             }
         },
         title: {
             textAlign: 'center',
             padding: theme.spacing(2.5),
             fontSize: theme.spacing(3),
+            color: theme.palette.secondary.main,
             [theme.breakpoints.up('sm')]: {
                 fontSize: theme.spacing(5)
             }
@@ -67,6 +70,22 @@ export const finishStyle = makeStyles((theme) => {
                 padding: '1vh 8vh',
 
             }
+        },
+        buttonsContainer: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around'
+        },
+        footer: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: theme.palette.primary.main,
+            height: '10vh'
+        },
+        github: {
+            fontSize: theme.spacing(6),
+            cursor: 'pointer'
         }
     }
 })
