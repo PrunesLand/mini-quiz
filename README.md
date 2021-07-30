@@ -4,6 +4,8 @@ This is a mini quiz to see how often you watch [The Joe Rogan Podcast](https://w
 
 By the end you will get a score and title of the type of viewer you are.
 
+Access the [Quiz here.](https://jre-quizlet.netlify.app/)
+
 This quiz was made with the following:
 
 - ReactJS
