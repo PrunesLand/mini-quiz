@@ -6,7 +6,7 @@ import { resetScore, selectCount } from '../../features/counter/counter'
 import { CurrentName, setName } from '../../features/user/user'
 import { achievements } from './achievement'
 import { finishStyle } from './style'
-import { FaGithub } from 'react-icons/fa'
+
 
 const Finish = () => {
 
@@ -120,15 +120,6 @@ const Finish = () => {
 
                 </Paper>
             </section>
-            <footer
-                className={classes.footer}
-            >
-                <FaGithub
-                    className={classes.github}
-                    onClick={() => window.open('https://github.com/PrunesLand')}
-                />
-            </footer>
-
         </div>
     )
 }
