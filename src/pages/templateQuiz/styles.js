@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core";
 export const templateStyle = makeStyles((theme) => {
     return {
         root: {
-            background: theme.palette.primary.dark
+            background: theme.palette.primary.dark,
+            flex: 1
         },
         section: {
             height: '90vh',

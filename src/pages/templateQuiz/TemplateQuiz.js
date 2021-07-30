@@ -10,7 +10,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import { FaGithub } from 'react-icons/fa'
 
 const TemplateQuiz = () => {
     const classes = templateStyle()
@@ -22,8 +21,6 @@ const TemplateQuiz = () => {
     const addValue = useSelector(increment)
     const history = useHistory()
     const [answerFlag, setAnswerFlag] = useState(false)
-
-
 
     const changeQuest = () => {
         dispatch(incrementPage())
@@ -44,9 +41,10 @@ const TemplateQuiz = () => {
     }
 
     const clickHandler = (answer, solution) => {
-        console.log('answer selected!')
+        console.log('click handled')
         if (answer === solution) {
             setAnswerFlag(true)
+            console.log('flag raised')
         } else {
             setAnswerFlag(false)
         }
@@ -120,7 +118,6 @@ const TemplateQuiz = () => {
                                             className={classes.answerBox}
                                         >
                                             <RadioGroup
-                                                onChange={() => clickHandler(single.options.option1, single.solution)}
                                             >
 
                                                 <FormControlLabel
@@ -128,24 +125,29 @@ const TemplateQuiz = () => {
                                                     control={<Radio />}
                                                     label={single.options.option1}
                                                     className={classes.answers}
+                                                    onClick={() => clickHandler(single.options.option1, single.solution)}
                                                 />
                                                 <FormControlLabel
                                                     value={single.options.option2}
                                                     control={<Radio />}
                                                     label={single.options.option2}
                                                     className={classes.answers}
+                                                    onClick={() => clickHandler(single.options.option2, single.solution)}
                                                 />
                                                 <FormControlLabel
                                                     value={single.options.option3}
                                                     control={<Radio />}
                                                     label={single.options.option3}
                                                     className={classes.answers}
+                                                    onClick={() => clickHandler(single.options.option3, single.solution)}
+
                                                 />
                                                 <FormControlLabel
                                                     value={single.options.option4}
                                                     control={<Radio />}
                                                     label={single.options.option4}
                                                     className={classes.answers}
+                                                    onClick={() => clickHandler(single.options.option4, single.solution)}
                                                 />
                                             </RadioGroup>
                                         </FormControl>
@@ -183,14 +185,6 @@ const TemplateQuiz = () => {
                     </div>
                 </Paper>
             </section>
-            <footer
-                className={classes.footer}
-            >
-                <FaGithub
-                    className={classes.github}
-                    onClick={() => window.open('https://github.com/PrunesLand')}
-                />
-            </footer>
 
         </div>
     )

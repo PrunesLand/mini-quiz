@@ -3,6 +3,7 @@ import Finish from './pages/finish/Finish';
 import TemplateQuiz from './pages/templateQuiz/TemplateQuiz';
 import Welcome from './pages/welcome/Welcome'
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import Navigation from './components/navigation/Navigation';
 
 const theme = createTheme({
   typography: {
@@ -22,17 +23,19 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <Router>
-          <Switch>
-            <Route exact path='/'>
-              <Welcome />
-            </Route>
-            <Route path='/template'>
-              <TemplateQuiz />
-            </Route>
-            <Route path='/finish'>
-              <Finish />
-            </Route>
-          </Switch>
+          <Navigation>
+            <Switch>
+              <Route exact path='/'>
+                <Welcome />
+              </Route>
+              <Route path='/template'>
+                <TemplateQuiz />
+              </Route>
+              <Route path='/finish'>
+                <Finish />
+              </Route>
+            </Switch>
+          </Navigation>
         </Router>
       </ThemeProvider>
     </>

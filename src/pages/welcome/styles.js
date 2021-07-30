@@ -3,16 +3,18 @@ import { makeStyles } from "@material-ui/core";
 export const introStyle = makeStyles((theme) => {
     return {
         root: {
-            background: theme.palette.primary.dark
+            background: theme.palette.primary.dark,
+            flexGrow: 1
         },
         section: {
-            height: '90vh',
+            height: '80vh',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            padding: theme.spacing(5)
         },
         paper: {
-            height: '52vh',
+            height: theme.spacing(50),
             width: '85vw',
             [theme.breakpoints.up('sm')]: {
                 width: '60vw',
@@ -74,16 +76,5 @@ export const introStyle = makeStyles((theme) => {
         buttonWrapper: {
             padding: theme.spacing(4)
         },
-        footer: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: theme.palette.primary.main,
-            height: '10vh'
-        },
-        github: {
-            fontSize: theme.spacing(6),
-            cursor: 'pointer'
-        }
     }
 })

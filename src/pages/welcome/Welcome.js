@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setName } from '../../features/user/user';
 import { useHistory } from 'react-router';
-import { FaGithub } from 'react-icons/fa'
+
 
 
 const Welcome = () => {
@@ -14,7 +14,16 @@ const Welcome = () => {
     const [user, setUser] = useState('')
     const dispatch = useDispatch()
     const history = useHistory()
+    const [flag, setFlag] = useState(false)
 
+    const handleChange = (e) => {
+        setUser(e.target.value)
+        setFlag(true)
+
+        if (e.target.value === '') {
+            setFlag(false)
+        }
+    }
 
     return (
         <div
@@ -59,33 +68,34 @@ const Welcome = () => {
                                 label='Enter your user'
                                 className={classes.field}
                                 value={user}
-                                onChange={e => setUser(e.target.value)}
+                                onChange={handleChange}
                             />
 
                             <div
                                 className={classes.buttonWrapper}
                             >
-                                <Button
+                                {flag === true ? <Button
                                     variant='outlined'
                                     type='submit'
                                     className={classes.button}
                                 >
                                     start
-                                </Button>
+                                </Button> :
+
+                                    <Button
+                                        variant='outlined'
+                                        type='submit'
+                                        className={classes.button}
+                                        disabled
+                                    >
+                                        start
+                                    </Button>}
                             </div>
                         </form>
                     </div>
                 </Paper>
 
             </section>
-            <footer
-                className={classes.footer}
-            >
-                <FaGithub
-                    className={classes.github}
-                    onClick={() => window.open('https://github.com/PrunesLand')}
-                />
-            </footer>
         </div>
     )
 }
