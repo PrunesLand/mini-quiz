@@ -14,3 +14,5 @@ This quiz was made with the following:
 - Netlify
 
 Have fun playing :metal:
+
+Status of Project: ***Finished***
