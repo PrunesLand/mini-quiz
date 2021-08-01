@@ -22,6 +22,8 @@ const TemplateQuiz = () => {
     const history = useHistory()
     const [answerFlag, setAnswerFlag] = useState(false)
 
+    // change into the next question
+    // resets the hook values 
     const changeQuest = () => {
         dispatch(incrementPage())
         setQuestion(page + 1)
@@ -33,6 +35,7 @@ const TemplateQuiz = () => {
             dispatch(reset)
             console.log('all question answered, next page!')
         }
+        // increments the user's score
         if (answerFlag === true) {
             dispatch(addValue)
             console.log('corrent answer!')
@@ -40,15 +43,17 @@ const TemplateQuiz = () => {
         }
     }
 
+    // click handler takes the user's clicked value and solution.
     const clickHandler = (answer, solution) => {
         console.log('click handled')
+        // answer flag used to show the correct answer has been selected and prevent continuous increment on click
         if (answer === solution) {
             setAnswerFlag(true)
             console.log('flag raised')
         } else {
             setAnswerFlag(false)
         }
-
+        // answer is saved into the store immediately
         switch (question) {
             case 1:
                 dispatch(storeAnswer1(answer))

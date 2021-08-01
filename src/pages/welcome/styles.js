@@ -1,5 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
+//this is the style of the welcome page. 
+//This will be imported into the welcome page for better easeability when building.
 export const introStyle = makeStyles((theme) => {
     return {
         root: {

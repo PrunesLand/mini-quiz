@@ -16,6 +16,8 @@ const Welcome = () => {
     const history = useHistory()
     const [flag, setFlag] = useState(false)
 
+    // handles the value inputted into textbox and imediately saves any inputted value.
+    //If no value is inputted or textbox is an empty string then the button is disabled
     const handleChange = (e) => {
         setUser(e.target.value)
         setFlag(true)

@@ -5,6 +5,7 @@ import Welcome from './pages/welcome/Welcome'
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import Navigation from './components/navigation/Navigation';
 
+// material ui's global theme custom values
 const theme = createTheme({
   typography: {
     useNextVariants: true,
@@ -21,6 +22,8 @@ function App() {
 
   return (
     <>
+      {/* Theme provider will allow global access to all components in the app. */}
+      {/* Router components allow for navigation between pages */}
       <ThemeProvider theme={theme}>
         <Router>
           <Navigation>

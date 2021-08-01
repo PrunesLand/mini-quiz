@@ -1,3 +1,5 @@
+// question bank which is then imported into the template page
+
 export const QuestionBank = [
     {
         id: 1,

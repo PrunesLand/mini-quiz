@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+//this reducer stores details of the current user and the answer the user chooses
 export const userSlice = createSlice({
     name: 'user',
     initialState: {
@@ -40,9 +40,9 @@ export const userSlice = createSlice({
         }
     }
 })
-
+// displays the curernt name of the user for later use in the finish page
 export const CurrentName = state => state.user.value;
-
+// to display the page and reference to change the current question
 export const selectPage = state => state.user.page;
 
 export const { setName, storeAnswer1, storeAnswer2, storeAnswer3, storeAnswer4, storeAnswer5, incrementPage, resetPage } = userSlice.actions

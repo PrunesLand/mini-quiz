@@ -3,6 +3,8 @@ import { navStyles } from './styles'
 import { FaGithub } from 'react-icons/fa'
 import { Typography } from '@material-ui/core'
 
+
+// Navigations wrapps the whole application enables a global display of the footing. Reduces repetetive code of foooter
 const Navigation = ({ children }) => {
 
     const classes = navStyles()

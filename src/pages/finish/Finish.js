@@ -18,6 +18,7 @@ const Finish = () => {
     const history = useHistory()
     const reset = useSelector(resetScore)
 
+    // calculates the title achieved by the user
     const titleAchieved = (score) => {
         switch (score) {
             case 5:
@@ -89,6 +90,7 @@ const Finish = () => {
                                 variant='outlined'
                                 className={classes.button}
                                 onClick={() => {
+                                    // resets the score and navigated to the first question
                                     history.push('/template')
                                     dispatch(reset)
                                 }}
@@ -105,6 +107,7 @@ const Finish = () => {
                                 variant='outlined'
                                 className={classes.button}
                                 onClick={() => {
+                                    // navigates to the home page and resets the name of the user for a fresh start
                                     history.push('/')
                                     dispatch(reset)
                                     dispatch(setName(''))

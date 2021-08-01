@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+// couunts the user's current score
 export const counterSlice = createSlice({
     name: 'counter',
     initialState: {
@@ -17,7 +17,7 @@ export const counterSlice = createSlice({
         }
     }
 })
-
+// reference to display the curent score of the user
 export const selectCount = state => state.counter.value;
 
 export const { increment, decrement, resetScore } = counterSlice.actions
